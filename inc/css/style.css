@@ -7,7 +7,7 @@ html, body {
   padding: 0;
 }
 
-#header, #menu, #visual, #contact, #footer {
+.wrapper-size {
   max-width: 1200px;
   min-width: 1024px;
   margin: 0 auto;
@@ -62,24 +62,26 @@ html, body {
 .list-wrapper > li {
   list-style: none;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   width: 15%;
   font-size: 16px;
-  color: #fff;
   height: 100%;
   line-height: 30px;
-  border-left: 1px solid #000;
-  transition-duration: 0.5s;
+  
   cursor: pointer;
 }
 
 .list-wrapper > li span {
   color: #fff;
+  border-left: 1px solid #000;
+  width: 100%;
+  display: inline-block;
+  transition-duration: 0.5s;
 }
-.list-wrapper > li:last-child {
+.list-wrapper > li:last-child span {
   border-right: 1px solid #000;
 }
-.list-wrapper > li:hover {
+.list-wrapper > li span:hover {
   background-color: #d98494;
 }
 
@@ -91,7 +93,7 @@ html, body {
   transition-duration: 0.5s;
   opacity: 0;
   padding-left: 0;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 .child-menu li {
   list-style: none;
