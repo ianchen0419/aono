@@ -39,4 +39,4 @@ setTimeout(function(){
 	footer.classList.add('showing');
 
 
-}, 3000);
+}, 4000);
