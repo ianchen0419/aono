@@ -1,11 +1,20 @@
 * {
   color: #444444;
+  font-family: 游ゴシック;
 }
 
 html, body {
   margin: 0;
   padding: 0;
 }
+
+/*
+$darkRed: #d0242c
+$lightRed: #d98494
+$textBlack: #444444
+*/
+
+/*top page*/
 
 .wrapper-size {
   max-width: 1200px;
@@ -129,15 +138,13 @@ html, body {
 .slider-text {
   text-align: center;
   color: #fff;
-  background-color: #d0242c;
   font-size: 24px;
   padding: 20px 0;
   width: 700px;
   position: absolute;
   top: 300px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  right: 5%;
+  text-shadow: 0px 3px 4px #444;
 }
 
 #contact {
@@ -164,9 +171,9 @@ html, body {
 }
 
 .feature-image-item {
-  border: 1px solid #000;
   width: 300px;
-  height: 280px;
+  height: 250px;
+  background-color: #f7f7f7;
   display: inline-block;
   margin: 0 40px;
   vertical-align: top;
@@ -183,15 +190,18 @@ html, body {
 
 .gallery-image-item {
   width: 250px;
+  height: 250px;
   display: inline-block;
-  border: 1px solid #000;
   text-align: center;
   margin: 0 20px;
   vertical-align: top;
+  background-color: #f7f7f7;
 }
 
-.gallery-image-item p {
-  height: 40px;
+
+
+.mar_top20 {
+  margin-top: 20px; 
 }
 
 .title-2 {
@@ -204,29 +214,25 @@ html, body {
 }
 .title-2:before {
   content: "";
-  width: 10px;
+  width: 5px;
   height: 25px;
   background-color: #d0242c;
   display: inline-block;
   margin-right: 10px;
   vertical-align: middle;
+  border: 1px solid #000;
 }
 
 .news-item {
-  margin: 15px 0 15px 0;
+  padding: 15px 0; 
+  border-bottom: 2px dotted rgba(0,0,0,0.3); 
 }
 .news-item .date {
-  background-color: #d0242c;
-  border: 1px solid #000;
-  color: #fff;
-  padding: 15px 5px;
-  text-align: center;
-  font-weight: bold;
   display: inline-block;
 }
 .news-item .news-title {
   display: inline-block;
-  margin-left: 20px;
+  margin-left: 40px;
 }
 
 .all-news-link {
@@ -265,3 +271,81 @@ html, body {
   color: #fff;
   margin-bottom: 10px;
 }
+
+
+/*motion*/
+
+body #motion img, body #motion h1 {
+  display: none;
+}
+
+body.motion-body {
+  background-color: #d0242c; 
+}
+
+body.motion-body #motion h1 {
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+body.motion-body #motion img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+body.motion-body #motion {
+  text-align: center;
+  line-height: 70vh;
+  animation: show 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+#header.showing {
+  animation: show 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+#menu.showing {
+  animation: show 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+#visual.showing {
+  animation: show 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+#contact.showing {
+  animation: show 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+#footer.showing {
+  animation: show 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
+
