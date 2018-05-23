@@ -1,21 +1,86 @@
-const menuChildHeads=document.querySelectorAll('.child-head span');
+var headerLocation;
+var menuLocation;
+var footerLocation;
 
-menuChildHeads.forEach(head => head.addEventListener('click', function(){
-	const nowActived=document.querySelector('.child-menu.active');
-	console.log(this.nextElementSibling);
+if(location.href.split('/').pop()==""){
+	//index page
+	headerLocation='html/header.html';
+	menuLocation='html/menu.html';
+	footerLocation='html/footer.html';
+}else{
+	//normal page
+	headerLocation='../header.html';
+	menuLocation='../menu.html';
+	footerLocation='../footer.html';
+}
 
-	if(nowActived){
-		nowActived.classList.remove("active");
-	}
+// header.html load
+const headerXhr=new XMLHttpRequest();
 
-	if(nowActived==this.nextElementSibling){
-		this.nextElementSibling.classList.remove("active");
-	}else{
-		this.nextElementSibling.classList.add("active");
-	}
-}));
+headerXhr.open("GET", headerLocation, true);
+headerXhr.send();
+
+headerXhr.onreadystatechange=function(){
+ 	if(headerXhr.readyState==4 && headerXhr.status==200){
+
+    	header.innerHTML = headerXhr.responseText;
 
 
+    }
+};
+
+// menu.html load
+const menuXhr=new XMLHttpRequest();
+
+menuXhr.open("GET", menuLocation, true);
+menuXhr.send();
+
+menuXhr.onreadystatechange=function(){
+ 	if(menuXhr.readyState==4 && menuXhr.status==200){
+
+    	menu.innerHTML = menuXhr.responseText;
+    	if(menuXhr.responseText){
+    		menuDropdown()
+    	}
+
+    }
+};
+
+//footer.html load
+const footerXhr=new XMLHttpRequest();
+
+footerXhr.open("GET", footerLocation, true);
+footerXhr.send();
+
+footerXhr.onreadystatechange=function(){
+ 	if(footerXhr.readyState==4 && footerXhr.status==200){
+
+    	footer.innerHTML = footerXhr.responseText;
+
+    }
+};
+
+
+// menu dropdown
+function menuDropdown(){
+	const menuChildHeads=document.querySelectorAll('.child-head span');
+	menuChildHeads.forEach(head => head.addEventListener('click', function(){
+		const nowActived=document.querySelector('.child-menu.active');
+
+		if(nowActived){
+			nowActived.classList.remove("active");
+		}
+
+		if(nowActived==this.nextElementSibling){
+			this.nextElementSibling.classList.remove("active");
+		}else{
+			this.nextElementSibling.classList.add("active");
+		}
+	}));
+}
+
+
+// top-page motion
 header.style.display="none";
 menu.style.display="none";
 visual.style.display="none";
