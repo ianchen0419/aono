@@ -105,3 +105,29 @@ setTimeout(function(){
 
 
 }, 4000);
+
+//slider show
+// 0, -100, -200
+let sliderPosition=-100;
+
+next.addEventListener('click', function(){
+ 
+	if(sliderPosition==-200){
+		return;
+	}else{
+ 		sliderPosition-=100;
+		sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
+	}
+
+});
+
+prev.addEventListener('click', function(){
+ 
+	if(sliderPosition==0){
+		return;
+	}else{
+		sliderPosition+=100;
+		sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
+	}
+
+});
