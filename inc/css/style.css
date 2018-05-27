@@ -1,7 +1,7 @@
 * {
 	color: #444444;
 	font-family: "Yu Gothic";
-	font-size: 10pt;
+	font-size: 11pt;
 }
 
 html, body {
@@ -55,7 +55,7 @@ $textBlack: #444444
 
 .logo-area, .title-area, .sitemap-link-area, .languague-link-area {
 	display: inline-block;
-	font-size: 10pt;
+	font-size: 11pt;
 	vertical-align: middle;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -99,7 +99,7 @@ $textBlack: #444444
 	display: inline-block;
 	vertical-align: top;
 	width: 15%;
-	font-size: 10pt;
+	font-size: 11pt;
 	height: 100%;
 	line-height: 30px;
 
@@ -392,7 +392,7 @@ $textBlack: #444444
 	display: inline-block;
 	width: 25%;
 	vertical-align: top;
-	font-size: 10pt;
+	font-size: 11pt;
 	margin-top: 20px;
 	margin-bottom: 10px;
 	padding: 0;
@@ -414,7 +414,7 @@ $textBlack: #444444
 	text-align: center;
 	color: #fff;
 	margin-bottom: 10px;
-	font-size: 10pt;
+	font-size: 11pt;
 }
 
 
@@ -481,7 +481,7 @@ body.motion-body #motion {
 .contact-path li{
 	list-style: none;
 	display: inline-block;
-	font-size: 10pt;
+	font-size: 11pt;
 }
 
 .contact-path li a{
@@ -517,7 +517,7 @@ body.motion-body #motion {
 	font-size: 23pt;
 	font-weight: bold;
 	text-align: center;
-	margin-top: 140px;
+	margin-top: 200px;
 }
 
 .page-title {
