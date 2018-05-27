@@ -19,14 +19,18 @@ menuXhr.open('GET', 'menu.html', true);
 menuXhr.send();
 
 menuXhr.onreadystatechange=function(){
+
+	
 	if(menuXhr.readyState==4 && menuXhr.status==200){
 
 		menu.innerHTML = menuXhr.responseText;
 		if(menuXhr.responseText){
-			menuDropdown()
+			menuDropdown();
+			menuHighlight();
 		}
 
 	}
+
 };
 
 //footer.html load
@@ -43,6 +47,38 @@ footerXhr.onreadystatechange=function(){
 	}
 };
 
+//menu highlight
+function menuHighlight(){
+	const nowActived=document.querySelector('#menu .list-wrapper > li.active');
+	const nowPage=location.pathname;
+	const menuList=document.querySelectorAll('#menu .list-wrapper > li')
+
+	if(nowPage=="/" || nowPage=="/index.html"){
+		return;
+
+	}else if(nowPage=='/advantage1.html' || nowPage=='/advantage2.html'){
+		nowActived.classList.remove('active');
+		menuList[1].classList.add('active');
+
+	}else if(nowPage=='/product.html'){
+		nowActived.classList.remove('active');
+		menuList[2].classList.add('active');
+
+	}else if(nowPage=='/factory.html' || nowPage=='/quality.html' || nowPage=='/process.html'){
+		nowActived.classList.remove('active');
+		menuList[3].classList.add('active');
+
+	}else if(nowPage=='/profile.html' || nowPage=='/message.html' || nowPage=='/recruit.html'){
+		nowActived.classList.remove('active');
+		menuList[4].classList.add('active');
+	}else if(nowPage=='/contact.html'){
+		nowActived.classList.remove('active');
+		menuList[5].classList.add('active');
+	}else {
+		nowActived.classList.remove('active');
+
+	}
+}
 
 // menu dropdown
 function menuDropdown(){
@@ -61,6 +97,7 @@ function menuDropdown(){
 		}
 	}));
 }
+
 
 
 // top-page motion
@@ -169,123 +206,132 @@ function sliderShow(){
 	})
 }
 
+
+
+//image gallery
+function galleryShow(){
+	let imageIndex;
+
+
+	const imgListItem=document.querySelectorAll('.image-list li');
+	const imgListArr=[...imgListItem];
+
+	imgListItem.forEach(img => img.addEventListener("click", function(){
+
+		imageIndex=imgListArr.indexOf(this);
+		imageGalleryWrapper.style.transform=`translateX(-${imageIndex}00vw)`
+		counterIndex.textContent=`${imageIndex+1}`;
+
+		dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
+		dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
+
+
+		setTimeout(function(){ 
+			imageGallery.classList.add('show');
+			document.body.style.overflow="hidden";
+		}, 300);
+
+
+	}))
+
+	close_btn.addEventListener('click', function(){
+		imageGallery.classList.remove('show');
+		document.body.style.overflow="";
+	})
+
+	function goPrev(){
+		if(imageIndex==0){
+			return;
+		}else{
+			imageIndex-=1;
+			imageGalleryWrapper.style.transform=`translateX(-${imageIndex}00vw)`
+			counterIndex.textContent=`${imageIndex+1}`;
+
+			dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
+			dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
+
+		}
+	}
+
+	function goNext(){
+		if(imageIndex==17){
+			return;
+		}else{
+			imageIndex+=1;
+			imageGalleryWrapper.style.transform=`translateX(-${imageIndex}00vw)`
+			counterIndex.textContent=`${imageIndex+1}`;
+
+			dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
+			dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
+
+
+		}
+	}
+
+	img_prev.addEventListener('click', goPrev);
+
+	img_next.addEventListener('click', goNext);
+
+	full_btn.addEventListener("click", function(){
+
+		if(document.webkitFullscreenElement || document.msRequestFullscreenElement || document.mozRequestFullScreenElement || document.fullscreenElement){
+
+			if (document.exitFullscreen) {
+				document.exitFullscreen();
+			} else if (document.msExitFullscreen) {
+				document.msExitFullscreen();
+			} else if (document.mozExitFullScreen) {
+				document.mozExitFullScreen();
+			} else if (document.webkitExitFullscreen) {
+				document.webkitExitFullscreen();
+			}
+
+		}else{
+			if (imageGallery.requestFullscreen) {
+				imageGallery.requestFullscreen();
+			} else if (imageGallery.msRequestFullscreen) {
+				imageGallery.msRequestFullscreen();
+			} else if (imageGallery.mozRequestFullScreen) {
+				imageGallery.mozRequestFullScreen();
+			} else if (imageGallery.webkitRequestFullscreen) {
+				imageGallery.webkitRequestFullscreen();
+			}
+
+
+		}
+
+
+
+	})
+
+
+	window.addEventListener("keydown", function(e){
+		if(e.keyCode==27){
+			imageGallery.classList.remove('show');
+			document.body.style.overflow="";
+		}
+
+		if(imageGallery.classList.contains('show')){
+
+			if(e.keyCode==37){
+				goPrev();
+			}else if(e.keyCode==39){
+				goNext();
+			}
+
+		}
+	})
+}
+
+
+//index animation and menu highlight
 if(location.pathname=='/' || location.pathname=='/index.html'){
 	motion();
 	sliderShow();
+}else if(location.pathname=='/product.html'){
+	galleryShow();
 }
 
-//image gallery
-let imageIndex;
-
-
-const imgListItem=document.querySelectorAll('.image-list li');
-const imgListArr=[...imgListItem];
-
-imgListItem.forEach(img => img.addEventListener("click", function(){
-
-	imageIndex=imgListArr.indexOf(this);
-	imageGalleryWrapper.style.transform=`translateX(-${imageIndex}00vw)`
-	counterIndex.textContent=`${imageIndex+1}`;
-
-	dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
-	dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
-
-
-	setTimeout(function(){ 
-		imageGallery.classList.add('show');
-		document.body.style.overflow="hidden";
-	}, 300);
-
-
-}))
-
-close_btn.addEventListener('click', function(){
-	imageGallery.classList.remove('show');
-	document.body.style.overflow="";
-})
-
-function goPrev(){
-	if(imageIndex==0){
-		return;
-	}else{
-		imageIndex-=1;
-		imageGalleryWrapper.style.transform=`translateX(-${imageIndex}00vw)`
-		counterIndex.textContent=`${imageIndex+1}`;
-
-		dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
-		dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
-
-	}
-}
-
-function goNext(){
-	if(imageIndex==17){
-		return;
-	}else{
-		imageIndex+=1;
-		imageGalleryWrapper.style.transform=`translateX(-${imageIndex}00vw)`
-		counterIndex.textContent=`${imageIndex+1}`;
-
-		dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
-		dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
-
-
-	}
-}
-
-img_prev.addEventListener('click', goPrev);
-
-img_next.addEventListener('click', goNext);
-
-full_btn.addEventListener("click", function(){
-
-	if(document.webkitFullscreenElement || document.msRequestFullscreenElement || document.mozRequestFullScreenElement || document.fullscreenElement){
-
-		if (document.exitFullscreen) {
-			document.exitFullscreen();
-		} else if (document.msExitFullscreen) {
-			document.msExitFullscreen();
-		} else if (document.mozExitFullScreen) {
-			document.mozExitFullScreen();
-		} else if (document.webkitExitFullscreen) {
-			document.webkitExitFullscreen();
-		}
-
-	}else{
-		if (imageGallery.requestFullscreen) {
-			imageGallery.requestFullscreen();
-		} else if (imageGallery.msRequestFullscreen) {
-			imageGallery.msRequestFullscreen();
-		} else if (imageGallery.mozRequestFullScreen) {
-			imageGallery.mozRequestFullScreen();
-		} else if (imageGallery.webkitRequestFullscreen) {
-			imageGallery.webkitRequestFullscreen();
-		}
-
-
-	}
-
-
-
-})
-
-
-window.addEventListener("keydown", function(e){
-	if(e.keyCode==27){
-		imageGallery.classList.remove('show');
-		document.body.style.overflow="";
-	}
-
-	if(imageGallery.classList.contains('show')){
-
-		if(e.keyCode==37){
-			goPrev();
-		}else if(e.keyCode==39){
-			goNext();
-		}
-
-	}
-})
 
 
 
