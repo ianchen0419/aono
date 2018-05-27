@@ -366,9 +366,12 @@ function galleryShow(){
 
 
 //function location
-if(location.pathname=='/' || location.pathname=='/index.html'){
+if(location.pathname=='/'){
 	motion();
 	sliderShow();
+}else if(location.pathname=='/index.html'){
+	sliderShow();
+
 }else if(location.pathname=='/product.html'){
 	galleryShow();
 }
