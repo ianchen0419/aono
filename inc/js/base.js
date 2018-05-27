@@ -174,3 +174,119 @@ if(location.pathname=='/' || location.pathname=='/index.html'){
 	sliderShow();
 }
 
+//image gallery
+let imageIndex;
+
+
+const imgListItem=document.querySelectorAll('.image-list li');
+const imgListArr=[...imgListItem];
+
+imgListItem.forEach(img => img.addEventListener("click", function(){
+
+	imageIndex=imgListArr.indexOf(this);
+	imageGalleryWrapper.style.transform=`translateX(-${imageIndex}00vw)`
+	counterIndex.textContent=`${imageIndex+1}`;
+
+	dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
+	dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
+
+
+	setTimeout(function(){ 
+		imageGallery.classList.add('show');
+		document.body.style.overflow="hidden";
+	}, 300);
+
+
+}))
+
+close_btn.addEventListener('click', function(){
+	imageGallery.classList.remove('show');
+	document.body.style.overflow="";
+})
+
+function goPrev(){
+	if(imageIndex==0){
+		return;
+	}else{
+		imageIndex-=1;
+		imageGalleryWrapper.style.transform=`translateX(-${imageIndex}00vw)`
+		counterIndex.textContent=`${imageIndex+1}`;
+
+		dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
+		dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
+
+	}
+}
+
+function goNext(){
+	if(imageIndex==17){
+		return;
+	}else{
+		imageIndex+=1;
+		imageGalleryWrapper.style.transform=`translateX(-${imageIndex}00vw)`
+		counterIndex.textContent=`${imageIndex+1}`;
+
+		dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
+		dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
+
+
+	}
+}
+
+img_prev.addEventListener('click', goPrev);
+
+img_next.addEventListener('click', goNext);
+
+full_btn.addEventListener("click", function(){
+
+	if(document.webkitFullscreenElement || document.msRequestFullscreenElement || document.mozRequestFullScreenElement || document.fullscreenElement){
+
+		if (document.exitFullscreen) {
+			document.exitFullscreen();
+		} else if (document.msExitFullscreen) {
+			document.msExitFullscreen();
+		} else if (document.mozExitFullScreen) {
+			document.mozExitFullScreen();
+		} else if (document.webkitExitFullscreen) {
+			document.webkitExitFullscreen();
+		}
+
+	}else{
+		if (imageGallery.requestFullscreen) {
+			imageGallery.requestFullscreen();
+		} else if (imageGallery.msRequestFullscreen) {
+			imageGallery.msRequestFullscreen();
+		} else if (imageGallery.mozRequestFullScreen) {
+			imageGallery.mozRequestFullScreen();
+		} else if (imageGallery.webkitRequestFullscreen) {
+			imageGallery.webkitRequestFullscreen();
+		}
+
+
+	}
+
+
+
+})
+
+
+window.addEventListener("keydown", function(e){
+	if(e.keyCode==27){
+		imageGallery.classList.remove('show');
+		document.body.style.overflow="";
+	}
+
+	if(imageGallery.classList.contains('show')){
+
+		if(e.keyCode==37){
+			goPrev();
+		}else if(e.keyCode==39){
+			goNext();
+		}
+
+	}
+})
+
+
+
+
