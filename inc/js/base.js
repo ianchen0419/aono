@@ -149,7 +149,7 @@ function sliderShow(){
 				sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
 				sliderWrapper.style.transition="none";
 
-			}, 1000);
+			}, 500);
 
 
 		}else{
@@ -191,7 +191,7 @@ function sliderShow(){
 				sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
 				sliderWrapper.style.transition="none";
 
-			}, 1000);
+			}, 500);
 
 		}else{
 
@@ -254,7 +254,7 @@ function galleryShow(){
 	let imageIndex;
 
 
-	const imgListItem=document.querySelectorAll('.image-list li');
+	const imgListItem=document.querySelectorAll('.image-list-item');
 	const imgListArr=[...imgListItem];
 
 	imgListItem.forEach(img => img.addEventListener("click", function(){
@@ -365,7 +365,7 @@ function galleryShow(){
 }
 
 
-//index animation and menu highlight
+//function location
 if(location.pathname=='/' || location.pathname=='/index.html'){
 	motion();
 	sliderShow();

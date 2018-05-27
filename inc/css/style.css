@@ -168,7 +168,7 @@ $textBlack: #444444
 }
 
 #sliderWrapper {
-	transition-duration: 1s;
+	transition-duration: 0.5s;
 	width: 500vw;
 	height: auto;
 	font-size: 0;
@@ -510,6 +510,9 @@ body.motion-body #motion {
 	background: #fff;
 	left: 100px;
 	width: 300px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .visual-title-area h1 {
@@ -517,7 +520,6 @@ body.motion-body #motion {
 	font-size: 23pt;
 	font-weight: bold;
 	text-align: center;
-	margin-top: 200px;
 }
 
 .page-title {
@@ -549,7 +551,7 @@ body.motion-body #motion {
 	font-weight: normal;
 }
 
-.image-area {
+.advantage-image-list {
 	text-align: center;
 	display: flex;
 	justify-content: space-around;
@@ -561,23 +563,27 @@ body.motion-body #motion {
 }
 
 /*image gallery*/
-.image-list li {
+.product-image-list li {
 	list-style: none;
 	display: inline-block;
 	position: relative;
 	font-size: 0;
-	cursor: pointer;
 	margin: 0 5px;
 	width: 300px;
 }
-.image-list li:before {
+
+.image-list-item {
+	cursor: pointer;
+}
+
+.image-list-item:before {
 	content: "\f002";
 	font-family: FontAwesome;
 	color: #fff;
 	font-size: 24px;
 	position: absolute;
 	top: 40%;
-	left: 50%;
+	left: 45%;
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	-webkit-transform: translateY(-50%);
@@ -588,10 +594,10 @@ body.motion-body #motion {
 	width: 26px;
 	height: 26px;
 }
-.image-list li:after {
+.image-list-item:after {
 	content: "";
 	width: 100%;
-	height: 77%;
+	height: 200.66px;
 	background-color: rgba(0, 0, 0, 0.5);
 	position: absolute;
 	top: 0;
@@ -600,14 +606,14 @@ body.motion-body #motion {
 	transition-duration: 0.5s;
 	z-index: 1;
 }
-.image-list li:hover:before {
+.image-list-item:hover:before {
 	opacity: 1;
 }
-.image-list li:hover:after {
+.image-list-item:hover:after {
 	opacity: 1;
 }
 
-.image-list li img {
+.product-image-list li img {
 	width: 100%;
 	border: 1px solid #000;
 	-webkit-box-sizing: border-box;
@@ -615,12 +621,12 @@ body.motion-body #motion {
 	box-sizing: border-box;
 }
 
-.image-list li {
+.product-image-list li {
 	text-align: center;
 }
 
 
-.image-gallery {
+#imageGallery {
 	width: 0;
 	height: 0;
 	position: fixed;
@@ -634,7 +640,7 @@ body.motion-body #motion {
 	overflow: hidden;
 }
 
-.image-gallery.show {
+#imageGallery.show {
 	opacity: 1;
 	width: 100vw;
 	height: 100vh;
@@ -642,13 +648,13 @@ body.motion-body #motion {
 	left: 0;
 }
 
-.image-gallery-wrapper {
+#imageGalleryWrapper {
 	width: 1800vw;
 	font-size: 0;
 	transition-duration: 0.5s;
 }
 
-.image-gallery img {
+#imageGallery img {
 	height: 100%;
 }
 
@@ -732,6 +738,10 @@ body.motion-body #motion {
 }
 
 /*step title*/
+.step-block {
+	margin: 40px 0;
+}
+
 .step-block img {
 	display: inline-block;
     width: 30%;
@@ -749,9 +759,91 @@ body.motion-body #motion {
     font-size: 17pt;
 }
 
+.step-line {
+	text-align: center;
+	position: relative;
+}
+
 .step-line hr {
 	border-style: dotted;
     border-color: rgba(0, 0, 0, 0.5);
+}
+
+.step-line i{
+	position: absolute;
+	font-size: 40px;
+	top: -8px;
+}
+
+.factory-image-list li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px 5px;
+}
+
+.factory-table {
+	border-collapse: collapse;
+    border: 1px solid #afa284;
+    width: 100%;
+}
+
+
+.factory-table th {
+	background: #afa284;
+    color: #fff;
+    font-weight: 200;
+}
+
+.factory-table td {
+	border: 1px solid #afa284;
+}
+
+.center {
+	text-align: center;
+}
+
+.quality-image-list {
+	font-size: 0;
+}
+
+.quality-image-list li {
+	list-style: none;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.quality-image-item {
+	width: 20%;
+	vertical-align: top;
+}
+
+.quality-image-item img {
+	width: 100%;
+}
+
+.quality-text-item {
+	width: 30%;
+	vertical-align: top;
+	padding: 0 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.profile-table {
+	border: 1px solid #afa284;
+    border-spacing: 15px;
+}
+
+.profile-table th {
+	text-align: left;
+    padding: 5px 10px;
+    color: #afa284;
+    border-right: 1px solid #afa284;
+}
+
+.profile td {
+	padding: 5px 10px;
 }
 
 
