@@ -169,11 +169,11 @@ $textBlack: #444444
 
 #sliderWrapper {
 	transition-duration: 1s;
-	width: 300vw;
+	width: 500vw;
 	height: auto;
 	font-size: 0;
-	-webkit-transform: translateX(0vw);
-	transform: translateX(0vw);
+	-webkit-transform: translateX(-100vw);
+	transform: translateX(-100vw);
 }
 
 .slider-item {
@@ -729,6 +729,29 @@ body.motion-body #motion {
 .image-footer small {
 	font-weight: 200;
     font-size: 11pt;
+}
+
+/*step title*/
+.step-block img {
+	display: inline-block;
+    width: 30%;
+}
+
+.step-content {
+	display: inline-block;
+    width: 65%;
+    vertical-align: top;
+    margin-left: 40px;
+}
+
+.step-title {
+	color: #d0242c;
+    font-size: 17pt;
+}
+
+.step-line hr {
+	border-style: dotted;
+    border-color: rgba(0, 0, 0, 0.5);
 }
 
 
