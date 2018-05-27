@@ -94,7 +94,7 @@ function motion(){
 
 function sliderShow(){
 	// 0, -100, -200
-	let sliderPosition=-100;
+	let sliderPosition=0;
 
 	next.addEventListener('click', function(){
 		
@@ -103,6 +103,17 @@ function sliderShow(){
 		}else{
 			sliderPosition-=100;
 			sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
+		}
+
+		const nowActived=document.querySelector('.dot.active');
+		nowActived.classList.remove('active');
+		
+		if(sliderPosition==0){
+			left.classList.add('active');
+		}else if(sliderPosition==-100){
+			center.classList.add('active');
+		}else {
+			right.classList.add('active');
 		}
 
 	});
@@ -116,29 +127,8 @@ function sliderShow(){
 			sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
 		}
 
-	});
-
-	left.addEventListener('click', function(){
-		sliderPosition=0;
-		sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
-	})
-
-	center.addEventListener('click', function(){
-		sliderPosition=-100;
-		sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
-	})
-
-	right.addEventListener('click', function(){
-		sliderPosition=-200;
-		sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
-	})
-
-	sliderWrapper.addEventListener('transitionend', function(){
-
 		const nowActived=document.querySelector('.dot.active');
-		if(nowActived){
-			nowActived.classList.remove('active');
-		}
+		nowActived.classList.remove('active');
 		
 		if(sliderPosition==0){
 			left.classList.add('active');
@@ -147,6 +137,35 @@ function sliderShow(){
 		}else {
 			right.classList.add('active');
 		}
+
+	});
+
+	left.addEventListener('click', function(){
+		sliderPosition=0;
+		sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
+
+		const nowActived=document.querySelector('.dot.active');
+		nowActived.classList.remove('active');
+		this.classList.add('active');
+
+	})
+
+	center.addEventListener('click', function(){
+		sliderPosition=-100;
+		sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
+
+		const nowActived=document.querySelector('.dot.active');
+		nowActived.classList.remove('active');
+		this.classList.add('active');
+	})
+
+	right.addEventListener('click', function(){
+		sliderPosition=-200;
+		sliderWrapper.style.transform=`translateX(${sliderPosition}vw)`;
+
+		const nowActived=document.querySelector('.dot.active');
+		nowActived.classList.remove('active');
+		this.classList.add('active');
 	})
 }
 
@@ -154,3 +173,4 @@ if(location.pathname=='/' || location.pathname=='/index.html'){
 	motion();
 	sliderShow();
 }
+
