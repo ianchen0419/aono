@@ -365,15 +365,47 @@ function galleryShow(){
 }
 
 
+
+
+
 //function location
 if(location.pathname=='/'){
 	motion();
 	sliderShow();
 }else if(location.pathname=='/index.html'){
 	sliderShow();
+	header.classList.add('showing');
+	menu.classList.add('showing');
+	visual.classList.add('showing');
+	contact.classList.add('showing');
+	footer.classList.add('showing');
 
 }else if(location.pathname=='/product.html'){
 	galleryShow();
+}else if(location.pathname=='/profile.html'){
+	function initMap() {
+		//tokyo office
+		var uluru = {lat: 35.6017628, lng: 139.7189039};
+		var map = new google.maps.Map(document.getElementById('officeMap'), {
+			zoom: 15,
+			center: uluru
+		});
+		var marker = new google.maps.Marker({
+			position: uluru,
+			map: map
+		});
+
+	    //ibaraki factory
+	    var uluru_2 = {lat: 35.8783578, lng: 140.3325862};
+	    var map_2 = new google.maps.Map(document.getElementById('factoryMap'), {
+	    	zoom: 12,
+	    	center: uluru_2
+	    });
+	    var marker = new google.maps.Marker({
+	    	position: uluru_2,
+	    	map: map_2
+	    });
+	}
 }
 
 

@@ -9,9 +9,15 @@
 	<title>株式会社青野工業</title>
 	<link rel='stylesheet prefetch' href='inc/lib/font-awesome-4.7.0/css/font-awesome.min.css' />
 	<link rel="stylesheet" href="inc/css/style.css" />
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm2EfNKgkxCRJRNikdhkvVLc1UL8EH8WI&callback=initMap"
+  async defer>
+</script>
+
+	<!-- AIzaSyBm2EfNKgkxCRJRNikdhkvVLc1UL8EH8WI -->
 </head>
 
-<body>
+<body class="showing">
 
 	<div id="header"></div>
 
@@ -84,7 +90,98 @@
 				</tr>
 			</table>
 
+			<div class="ios-area">
+				<img src="inc/img/profile/asr02.gif" alt="ios認証" />
+				<ul class="ios-list">
+					<li>2004年9月取得ISO9001を取得しました。徹底した品質管理を追及しております。</li>
+					<li>2006年2月取得ISO14001を取得しました。環境に配慮した物作りを行っています。</li>
+				</ul>
+			</div>
 
+			<h2 class="title-2">
+				<span>アクセス</span>
+			</h2>
+
+			<div class="map-area">
+				<div class="map-item">
+					<div class="address">
+						<i class="fa fa-caret-right"></i>
+						本社<br>
+						東京都品川区西大井6丁目7番2号<br>
+						TEL : 03-3776-3144 FAX : 03-3777-6896
+					</div>
+					<div id="officeMap"></div>
+				</div>
+				<div class="map-item">
+					<div class="address">
+						<i class="fa fa-caret-right"></i>
+						茨城事業所<br>
+						茨城県稲敷郡河内町金江津5505番地<br>
+						TEL : 0297-86-3661 FAX : 0297-86-3665
+					</div>
+					<div id="factoryMap"></div>
+				</div>
+			</div>
+
+			<h2 class="title-2">
+				<span>統合マネジメントシステム(ＩＭＳ方針)</span>
+			</h2>
+
+			<article>
+				株式会社青野工業は地球環境の保護に配慮しながらプラスチック製品を提供しお客様が喜んでいただける製品とサービスを提供いたします。<br>
+				私は、この統合マネジメントシステム（ＩＭＳ）方針を達成するため法令を遵守し社員に周知徹底し、維持管理し、有効性の継続的改善に努めます。
+			</article>
+
+			<div class="profile-policy-item">
+				<i class="fa fa-caret-right"></i>
+				<span>品質マネジメントシステム重点実施事項</span>
+				<ul class="profile-policy-list">
+					<li>各部門長に品質方針を達成するための具体的な、年度毎の品質目標を設定させる。</li>
+					<li>各部門は、これを達成するための活動を計画し、実行する。</li>
+					<li>お客様のニーズに素早く対応できるシステムを構築する。</li>
+					<li>品質向上に向けた継続的な改善に取り組む。</li>
+				</ul>
+			</div>
+
+			<div class="profile-policy-item">
+				<i class="fa fa-caret-right"></i>
+				<span>環境マネジメントシステム重点実施事項</span>
+				<ul class="profile-policy-list">
+					<li>当社の生産活動に係わる環境影響を製品のライフサイクルの視点で認識し、環境目標を定め、環境汚染の予防及び環境保護を推進するとともに環境マネジメントシステムの継続的改善を図る。</li>
+					<li>環境関連法規及び当社が同意したその他の要求事項を遵守する。</li>
+					<li>当社で製造される製品が与える環境影響の中で、以下の項目を重点に環境マネジメント活動を行なう。</li>
+					<li>省エネ</li>
+					<li>省資源</li>
+					<li>地球温暖化防止</li>
+					<li>環境目標は定期的に見直しを行なう。</li>
+					<li>全社員に環境教育を実施し、環境方針及び保全の重要性を認識させ意識向上に努める。</li>
+				</ul>
+			</div>
+
+			<div class="profile-policy-item">
+				<i class="fa fa-caret-right"></i>
+				<span>環境マネジメントシステム重点実施事項</span>
+				<ul class="profile-policy-list">
+					<li>当社の生産活動に係わる環境影響を製品のライフサイクルの視点で認識し、環境目標を定め、環境汚染の予防及び環境保護を推進するとともに環境マネジメントシステムの継続的改善を図る。</li>
+					<li>環境関連法規及び当社が同意したその他の要求事項を遵守する。</li>
+					<li>当社で製造される製品が与える環境影響の中で、以下の項目を重点に環境マネジメント活動を行なう。</li>
+					<li>省エネ</li>
+					<li>省資源</li>
+					<li>地球温暖化防止</li>
+					<li>環境目標は定期的に見直しを行なう。</li>
+					<li>全社員に環境教育を実施し、環境方針及び保全の重要性を認識させ意識向上に努める。</li>
+				</ul>
+			</div>
+
+			<div class="profile-policy-item">
+				<span>※適用範囲</span>
+				<ol class="profile-policy-list">
+					<li>適用事業（製品/サービス）<br>プラスチック製品の製造業務</li>
+					<li>適用事業所<br>本社・工場：東京都品川区西大井6-7-2<br>茨城事業所：茨城県稲敷郡河内町金江津5505</li>
+				</ol>
+			</div>
+
+			<p class="right-text">株式会社青野工業 代表取締役 青野義樹</p>
 
 		</div>
 	</div>
