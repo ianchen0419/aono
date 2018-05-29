@@ -169,7 +169,7 @@ $textBlack: #444444
 }
 
 .slider-area {
-	width: 100vw;
+	width: 100%;
 	overflow: hidden;
 	position: relative;
 }
@@ -294,8 +294,12 @@ $textBlack: #444444
 	padding: 10px;
 }
 
-.article-text {
+.center-article {
 	text-align: center;
+}
+
+.left-article {
+	margin: 40px 0;
 }
 
 .advantage-image-wrapper, .gallery-image-wrapper {
@@ -494,7 +498,7 @@ body.showing {
 .contact-path li{
 	list-style: none;
 	display: inline-block;
-	font-size: 11pt;
+	font-size: 9pt;
 }
 
 .contact-path li a{
@@ -810,10 +814,13 @@ body.showing {
 	background: #afa284;
 	color: #fff;
 	font-weight: 200;
+	padding: 8px;
 }
 
 .factory-table td {
 	border: 1px solid #afa284;
+	padding: 10px;
+
 }
 
 .center {
