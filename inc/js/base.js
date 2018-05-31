@@ -100,19 +100,6 @@ function menuDropdown(){
 			}
 		})
 	}
-	// menuChildHeads.forEach(head => head.addEventListener('click', function(){
-	// 	var nowActived=document.querySelector('.child-menu.active');
-
-	// 	if(nowActived){
-	// 		nowActived.classList.remove("active");
-	// 	}
-
-	// 	if(nowActived==this.nextElementSibling){
-	// 		this.nextElementSibling.classList.remove("active");
-	// 	}else{
-	// 		this.nextElementSibling.classList.add("active");
-	// 	}
-	// }));
 }
 
 
@@ -272,45 +259,48 @@ function galleryShow(){
 
 
 	var imgListItem=document.querySelectorAll('.image-list-item');
-	// var imgListArr=[...imgListItem];
-	// var imgListArr=Array.from(imgListItem);
+	imgListItem.forEach((item, index) => item.addEventListener('click', function(value, i){
 
-	for(i=0;i<imgListItem.length;i++){
-		imageIndex=i;
+		imageIndex=index;
 
-		imgListItem[i].addEventListener('click', function(){
-			// imageIndex=imgListArr.indexOf(this);
-			imageGalleryWrapper.style.transform="translateX(-"+imageIndex+"00vw)";
-			counterIndex.textContent=imageIndex+1;
+		imageGalleryWrapper.style.transform="translateX(-"+imageIndex+"00vw)";
+		counterIndex.textContent=imageIndex+1;
 
-			dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
-			dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
+		dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
+		dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
 
 
-			setTimeout(function(){ 
-				imageGallery.classList.add('show');
-				document.body.style.overflow="hidden";
-			}, 300);
-		})
-	}
+		setTimeout(function(){ 
+			imageGallery.classList.add('show');
+			document.body.style.overflow="hidden";
+		}, 300);
 
-	// imgListItem.forEach(img => img.addEventListener("click", function(){
+	}))
 
-	// 	imageIndex=imgListArr.indexOf(this);
-	// 	imageGalleryWrapper.style.transform="translateX(-"+imageIndex+"00vw)";
-	// 	counterIndex.textContent=`${imageIndex+1}`;
+	// for(i=0;i<imgListItem.length;i++){
+		
+	// 	imgListItem[i].addEventListener('click', function(){
 
-	// 	dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
-	// 	dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
+	// 		imageGalleryWrapper.style.transform="translateX(-"+imageIndex+"00vw)";
+	// 		counterIndex.textContent=imageIndex+1;
 
-
-	// 	setTimeout(function(){ 
-	// 		imageGallery.classList.add('show');
-	// 		document.body.style.overflow="hidden";
-	// 	}, 300);
+	// 		dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
+	// 		dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
 
 
-	// }))
+	// 		setTimeout(function(){ 
+	// 			imageGallery.classList.add('show');
+	// 			document.body.style.overflow="hidden";
+	// 		}, 300);
+
+
+
+	// 	})
+
+	// 	// imageIndex=i;
+	// }
+
+
 
 	close_btn.addEventListener('click', function(){
 		imageGallery.classList.remove('show');
@@ -407,10 +397,11 @@ function galleryShow(){
 
 //function location
 
+
 if(nowPath==''){
 	motion();
 	sliderShow();
-}else if(nowPath=='/index.html'){
+}else if(nowPath=='index.html'){
 	sliderShow();
 	header.classList.add('showing');
 	menu.classList.add('showing');
@@ -445,8 +436,3 @@ if(nowPath==''){
 	    });
 	}
 }
-
-
-
-
-

@@ -1,6 +1,5 @@
 * {
 	color: #444444;
-	/*font-family: "Yu Gothic";*/
 	font-family: 'Century Gothic','Avenir','Helvetica neue','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 	font-weight: lighter;
 	letter-spacing: 0.1em;
@@ -27,6 +26,7 @@ a {
 
 span,small {
 	color: inherit;
+	font-size: inherit;
 }
 
 a:hover {
@@ -108,8 +108,6 @@ $textBlack: #444444
 	width: 15%;
 	font-size: 11pt;
 	height: 100%;
-	line-height: 30px;
-
 	cursor: pointer;
 }
 
@@ -119,6 +117,7 @@ $textBlack: #444444
 	width: 100%;
 	display: inline-block;
 	transition-duration: 0.5s;
+	padding: 4px 0;
 }
 .list-wrapper > li:last-child span {
 	border-right: 1px solid #fff;
@@ -139,33 +138,32 @@ $textBlack: #444444
 
 .child-menu {
 	transition-duration: 0.5s;
-	opacity: 0;
 	padding-left: 0;
 	background-color: #fff;
-	border: 1px solid #d98494;
+	max-height: 0;
+	overflow: hidden;
 }
 .child-menu li {
 	list-style: none;
 	text-align: left;
-	padding: 0px 15px;
+	padding: 4px 15px;
 	color: #d0242c;
 	transition-duration: 0.5s;
 }
 
 .child-menu li {
-	border-top: 1px solid #d98494;
+	border-bottom: 1px solid #d98494;
+	border-right: 1px solid #d98494;
+	border-left: 1px solid #d98494;
 }
 
-.child-menu a:first-child {
-	border-top: none;
-}
 .child-menu li:hover {
 	background-color: rgba(208, 36, 44, 0.6);
 	color: #fff;
 }
 
 .child-menu.active {
-	opacity: 1;
+	max-height: 300px;
 }
 
 .slider-area {
@@ -212,7 +210,7 @@ $textBlack: #444444
 .slider-text {
 	text-align: right;
 	color: #fff;
-	font-size: 27pt;
+	font-size: 26pt;
 	padding: 20px 0;
 	width: 980px;
 	position: absolute;
@@ -351,7 +349,7 @@ $textBlack: #444444
 .title-2 {
 	border-bottom: 3px double #d0242c;
 	margin: 40px 0 20px 0;
-	width: 600px;
+	width: 650px;
 }
 
 .title-2 span {
@@ -579,7 +577,7 @@ body.showing {
 
 /*image gallery*/
 .product-image-list {
-	animation: show 1.5s;
+	animation: show 2s;
 	animation-fill-mode: forwards;
 	opacity: 0;
 }
@@ -797,6 +795,12 @@ body.showing {
 	top: -8px;
 }
 
+.factory-image-list {
+	animation: show 3s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
 .factory-image-list li {
 	list-style: none;
 	display: inline-block;
@@ -830,12 +834,13 @@ body.showing {
 .quality-image-list {
 	font-size: 0;
 	padding: 0;
+	margin-top: 40px;
 }
 
 .quality-image-list li {
 	list-style: none;
 	display: inline-block;
-	margin-top: 20px;
+	margin-bottom: 60px;
 }
 
 .quality-image-item {
@@ -904,7 +909,7 @@ body.showing {
 }
 
 .address {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .profile-policy-item {
@@ -918,6 +923,159 @@ body.showing {
 .recruit-list {
 	padding-left: 20px;
 }
+
+.contact-table {
+	border-spacing: 25px 15px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.contact-table th {
+	text-align: left;
+	padding: 15px 12px;
+	background: #eee;
+	border-radius: 2px;
+	font-size: 10pt;
+}
+
+
+.contact-table input[type="text"] {
+	width: 90%;
+	height: 30px;
+	border: 1px solid #777;
+	font-size: 13pt;
+	padding: 3px 15px;
+	border-radius: 2px;
+	outline: none;
+	-webkit-transition-duration: 1s;
+	-o-transition-duration: 1s;
+	transition-duration: 1s;
+	color: #afa284;
+}
+
+.contact-table input[type="text"]:focus {
+	border-color: #afa284;
+}
+
+.contact-table textarea {
+	width: 90%;
+	border: 1px solid #777;
+	font-size: 13pt;
+	padding: 10px 15px;
+	border-radius: 2px;
+	outline: none;
+	-webkit-transition-duration: 1s;
+	-o-transition-duration: 1s;
+	transition-duration: 1s;
+	color: #afa284;
+}
+
+.contact-table textarea:focus {
+	border-color: #afa284;
+}
+
+.contact-table .badge {
+	color: #fff;
+    background: #ff5d55;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 8pt;
+    float: right;
+}
+
+.btn-box {
+	margin: 40px;
+    text-align: center;
+}
+
+.btn-box input {
+	border: 1px solid #4c7a34;
+    background: #cbe8ba;
+    padding: 6px 120px;
+    border-radius: 5px;
+    font-size: 13pt;
+    cursor: pointer;
+    outline: none;
+    transition-duration: 0.5s
+}
+
+.btn-box input:hover {
+	background-color: #4c7a34;
+	color: #fff;
+}
+
+
+/*radio*/
+.radio-label {
+	margin: 0px 5px;
+}
+.radio-label input[type="radio"] {
+	display: none;
+}
+.radio-label input[type="radio"]:checked + .radio-widget {
+	border-color: #afa284;
+	background: radial-gradient(#afa284 44%, transparent 50%);
+}
+
+.radio-widget {
+	width: 20px;
+	height: 20px;
+	border: 1px solid #ababab;
+	border-radius: 100%;
+	position: relative;
+	margin-right: 5px;
+	background: radial-gradient(#ddd 20%, #fff 25%);
+	-webkit-transition-duration: 0.5s;
+	-o-transition-duration: 0.5s;
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+
+.radio-widget, input {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.block-title {
+	color: #d0242c;
+    background: #ffdad8;
+    padding: 14px;
+    text-align: center;
+    font-size: 19pt;
+    width: 500px;
+    margin: 40px auto;
+}
+
+.sitemap-list {
+	padding: 0;
+    margin: 0 auto;
+    font-size: 0;
+    width: 800px;
+}
+
+.sitemap-list i {
+	color: #d0242c;
+}
+
+.sitemap-list > li {
+	width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14pt;
+    margin-bottom: 40px;
+    list-style: none;
+}
+
+ul.sitemap-detail-list {
+    margin-top: 10px;
+    padding: 0;
+}
+
+.sitemap-detail-list li {
+    margin-top: 5px;
+    list-style: none;
+}
+
 
 
 @-webkit-keyframes show {
