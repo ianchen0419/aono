@@ -6,6 +6,10 @@
 	font-size: 11pt;
 }
 
+strong {
+	font-weight: bold;
+}
+
 h1,h2{
 	font-weight: 400;
 }
@@ -208,17 +212,18 @@ $textBlack: #444444
 }
 
 .slider-text {
-	text-align: right;
+	text-align: center;
 	color: #fff;
 	font-size: 26pt;
 	padding: 20px 0;
-	width: 980px;
+	width: 100%;
 	position: absolute;
 	top: 450px;
 	left: 50%;
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	text-shadow: -1px 4px 6px #333;
+
 }
 
 #prev, #next {
@@ -290,6 +295,7 @@ $textBlack: #444444
 	width: 250px;
 	margin: 40px auto 20px auto;
 	padding: 10px;
+	font-weight: bold;
 }
 
 .center-article {
@@ -349,7 +355,7 @@ $textBlack: #444444
 .title-2 {
 	border-bottom: 3px double #d0242c;
 	margin: 40px 0 20px 0;
-	width: 650px;
+	width: 700px;
 }
 
 .title-2 span {
