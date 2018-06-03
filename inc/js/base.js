@@ -83,23 +83,51 @@ function menuHighlight(){
 
 // menu dropdown
 function menuDropdown(){
-	var menuChildHeads=document.querySelectorAll('.child-head span');
 
-	for(i=0;i<menuChildHeads.length;i++){
-		menuChildHeads[i].addEventListener('click', function(){
-			var nowActived=document.querySelector('.child-menu.active');
+	// PC menu dropdown
+	if(window.innerWidth > 767){
 
-			if(nowActived){
-				nowActived.classList.remove("active");
-			}
+		var menuChildHeads=document.querySelectorAll('.child-head span');
 
-			if(nowActived==this.nextElementSibling){
-				this.nextElementSibling.classList.remove("active");
-			}else{
-				this.nextElementSibling.classList.add("active");
+		for(i=0;i<menuChildHeads.length;i++){
+			menuChildHeads[i].addEventListener('click', function(){
+				var nowActived=document.querySelector('.child-menu.active');
+
+				if(nowActived){
+					nowActived.classList.remove("active");
+				}
+
+				if(nowActived==this.nextElementSibling){
+					this.nextElementSibling.classList.remove("active");
+				}else{
+					this.nextElementSibling.classList.add("active");
+				}
+			})
+		}
+	}else{
+
+		//mobile menu dropdown
+		document.body.addEventListener('touchstart', function(event){
+
+			if(event.target.tagName=='BODY' && mobileMenu.classList.contains('opened')){
+				document.body.classList.remove('mobile-menu-opened');
+				mobileMenu.classList.remove('opened');
 			}
 		})
+
+		const mobileMenuChildHeads=document.querySelectorAll('.mobile-child-head');
+
+		mobileMenuChildHeads.forEach(item => item.addEventListener('touchstart', function(){
+			this.classList.toggle('active');
+			this.nextElementSibling.classList.toggle('opened');
+		}))
 	}
+}
+
+
+function openMobileMenu(){
+	document.body.classList.add('mobile-menu-opened');
+	mobileMenu.classList.add('opened');
 }
 
 
@@ -111,6 +139,7 @@ function motion(){
 	visual.style.display="none";
 	contact.style.display="none";
 	footer.style.display="none";
+
 	document.body.classList.add('motion-body');
 
 	setTimeout(function(){ 
@@ -135,130 +164,126 @@ function motion(){
 
 function sliderShow(){
 
-	//PC slider show
-	if(window.innerWidth > 767){
+	// -80% 1 copy
+	// -60% 3
+	// -40% 2
+	// -20% 1
+	// 0%   3 copy
+	let sliderPosition=-20;
 
-		// -80% 1 copy
-		// -60% 3
-		// -40% 2
-		// -20% 1
-		// 0%   3 copy
-		let sliderPosition=-20;
+	next.addEventListener('click', function(){
 
-		next.addEventListener('click', function(){
+		if(sliderPosition==-60){
+			sliderPosition=-80;
+			sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
+			right.classList.remove('active');
+			left.classList.add('active');
 
-			if(sliderPosition==-60){
-				sliderPosition=-80;
+
+			setTimeout(function(){ 
+				sliderWrapper.style.transition="none";
+
+				sliderPosition=-20;
 				sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
-				right.classList.remove('active');
+				sliderWrapper.style.transition="none";
+
+			}, 500);
+
+
+		}else{
+			sliderPosition-=20;
+			sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
+			sliderWrapper.style.transition="";
+
+
+			var nowActived=document.querySelector('.dot.active');
+			nowActived.classList.remove('active');
+
+			if(sliderPosition==0 || sliderPosition==-20){
 				left.classList.add('active');
-
-
-				setTimeout(function(){ 
-					sliderWrapper.style.transition="none";
-
-					sliderPosition=-20;
-					sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
-					sliderWrapper.style.transition="none";
-
-				}, 500);
-
-
-			}else{
-				sliderPosition-=20;
-				sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
-				sliderWrapper.style.transition="";
-
-
-				var nowActived=document.querySelector('.dot.active');
-				nowActived.classList.remove('active');
-
-				if(sliderPosition==0 || sliderPosition==-20){
-					left.classList.add('active');
-				}else if(sliderPosition==-40){
-					center.classList.add('active');
-				}else if(sliderPosition=-60 || sliderPosition==-80) {
-					right.classList.add('active');
-				}
-
-
-
-			}
-
-		})
-
-		prev.addEventListener('click', function(){
-			beforePosition=sliderPosition;
-
-			if(sliderPosition==-20){
-				sliderPosition=0;
-				sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
-				left.classList.remove('active');
+			}else if(sliderPosition==-40){
+				center.classList.add('active');
+			}else if(sliderPosition=-60 || sliderPosition==-80) {
 				right.classList.add('active');
-
-				setTimeout(function(){ 
-					sliderWrapper.style.transition="none";
-
-					sliderPosition=-60;
-					sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
-					sliderWrapper.style.transition="none";
-
-				}, 500);
-
-			}else{
-
-				sliderPosition+=20;
-				sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
-				sliderWrapper.style.transition="";
-
-				var nowActived=document.querySelector('.dot.active');
-				nowActived.classList.remove('active');
-
-				if(sliderPosition==0 || sliderPosition==-20){
-					left.classList.add('active');
-				}else if(sliderPosition==-40){
-					center.classList.add('active');
-				}else if(sliderPosition=-60 || sliderPosition==-80) {
-					right.classList.add('active');
-				}
-
-
-
 			}
 
-		})
 
-		left.addEventListener('click', function(){
-			sliderPosition=-20;
+
+		}
+
+	})
+
+	prev.addEventListener('click', function(){
+		beforePosition=sliderPosition;
+
+		if(sliderPosition==-20){
+			sliderPosition=0;
+			sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
+			left.classList.remove('active');
+			right.classList.add('active');
+
+			setTimeout(function(){ 
+				sliderWrapper.style.transition="none";
+
+				sliderPosition=-60;
+				sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
+				sliderWrapper.style.transition="none";
+
+			}, 500);
+
+		}else{
+
+			sliderPosition+=20;
 			sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
 			sliderWrapper.style.transition="";
 
 			var nowActived=document.querySelector('.dot.active');
 			nowActived.classList.remove('active');
-			this.classList.add('active');
-		})
 
-		center.addEventListener('click', function(){
-			sliderPosition=-40;
-			sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
-			sliderWrapper.style.transition="";
+			if(sliderPosition==0 || sliderPosition==-20){
+				left.classList.add('active');
+			}else if(sliderPosition==-40){
+				center.classList.add('active');
+			}else if(sliderPosition=-60 || sliderPosition==-80) {
+				right.classList.add('active');
+			}
 
-			var nowActived=document.querySelector('.dot.active');
-			nowActived.classList.remove('active');
-			this.classList.add('active');
-		})
 
-		right.addEventListener('click', function(){
-			sliderPosition=-60;
-			sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
-			sliderWrapper.style.transition="";
 
-			var nowActived=document.querySelector('.dot.active');
-			nowActived.classList.remove('active');
-			this.classList.add('active');
-		})
+		}
 
-	}
+	})
+
+	left.addEventListener('click', function(){
+		sliderPosition=-20;
+		sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
+		sliderWrapper.style.transition="";
+
+		var nowActived=document.querySelector('.dot.active');
+		nowActived.classList.remove('active');
+		this.classList.add('active');
+	})
+
+	center.addEventListener('click', function(){
+		sliderPosition=-40;
+		sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
+		sliderWrapper.style.transition="";
+
+		var nowActived=document.querySelector('.dot.active');
+		nowActived.classList.remove('active');
+		this.classList.add('active');
+	})
+
+	right.addEventListener('click', function(){
+		sliderPosition=-60;
+		sliderWrapper.style.transform="translateX("+sliderPosition+"%)";
+		sliderWrapper.style.transition="";
+
+		var nowActived=document.querySelector('.dot.active');
+		nowActived.classList.remove('active');
+		this.classList.add('active');
+	})
+
 }
 
 
@@ -409,10 +434,24 @@ function galleryShow(){
 
 
 if(nowPath==''){
-	motion();
-	sliderShow();
+	if(window.innerWidth > 767){
+		motion();
+
+	}else{
+		sliderShow();
+		motion();
+
+	}
 }else if(nowPath=='index.html'){
-	sliderShow();
+	if(window.innerWidth > 767){
+		motion();
+		
+	}else{
+		sliderShow();
+		motion();
+
+	}
+	
 	header.classList.add('showing');
 	menu.classList.add('showing');
 	visual.classList.add('showing');
