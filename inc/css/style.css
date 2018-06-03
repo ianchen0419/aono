@@ -1164,7 +1164,7 @@ ul.sitemap-detail-list {
 		-o-transition-duration: 0.3s;
 		transition-duration: 0.3s;
 		overflow-y: scroll;
-		padding-bottom: 50px;
+		padding-bottom: 100px;
 		box-sizing: border-box;
 	}
 
@@ -1175,6 +1175,12 @@ ul.sitemap-detail-list {
 	body.mobile-menu-opened {
 		overflow: hidden;
 		position: fixed;
+		cursor: pointer;
+
+	}
+
+	body.mobile-menu-opened #sliderWrapper {
+		animation: none;
 	}
 
 	body.mobile-menu-opened:after{
@@ -1186,10 +1192,13 @@ ul.sitemap-detail-list {
 		top: 0;
 		background: #fff;
 		opacity: 0.6;
+		cursor: pointer;
+
 	}
 
 	.mobile-list {
 		padding: 5px 0;
+		margin-top: 0;
 	}
 
 	.mobile-list > li {
@@ -1273,8 +1282,23 @@ ul.sitemap-detail-list {
 		animation: sliderPlay 12s infinite;
 		-webkit-animation: sliderPlay 12s infinite;
 		-webkit-backface-visibility: hidden;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
 
+	}
 
+	.image-1 {
+		background: url(../img/top/top_slide1_mobile.png);
+		background-size: cover;
+	}
+
+	.image-2 {
+		background: url(../img/top/top_slide2_mobile.png);
+		background-size: cover;
+	}
+
+	.image-3 {
+		background: url(../img/top/top_slide3_mobile.png);
+		background-size: cover; 
 	}
 
 	.slider-item {

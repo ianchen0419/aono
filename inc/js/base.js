@@ -117,7 +117,7 @@ function menuDropdown(){
 
 		const mobileMenuChildHeads=document.querySelectorAll('.mobile-child-head');
 
-		mobileMenuChildHeads.forEach(item => item.addEventListener('touchstart', function(){
+		mobileMenuChildHeads.forEach(item => item.addEventListener('click', function(){
 			this.classList.toggle('active');
 			this.nextElementSibling.classList.toggle('opened');
 		}))
@@ -436,20 +436,14 @@ function galleryShow(){
 if(nowPath==''){
 	if(window.innerWidth > 767){
 		motion();
+		sliderShow();
 
 	}else{
 		sliderShow();
-		motion();
-
 	}
 }else if(nowPath=='index.html'){
 	if(window.innerWidth > 767){
-		motion();
-		
-	}else{
 		sliderShow();
-		motion();
-
 	}
 	
 	header.classList.add('showing');
