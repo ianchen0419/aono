@@ -131,12 +131,12 @@ function openMobileMenu(){
 }
 
 
-
 // top-page motion
 function motion(){
 	header.style.display="none";
-	menu.style.display="none";
-	visual.style.display="none";
+	menu.style.opacity="none";
+	// visual.style.display="none";
+	visual.style.opacity=0;
 	contact.style.display="none";
 	footer.style.display="none";
 
@@ -147,7 +147,8 @@ function motion(){
 
 		header.style.display="";
 		menu.style.display="";
-		visual.style.display="";
+		// visual.style.display="";
+		visual.style.opacity=1;
 		contact.style.display="";
 		footer.style.display="";
 
@@ -157,8 +158,12 @@ function motion(){
 		contact.classList.add('showing');
 		footer.classList.add('showing');
 
+			sliderWrapper.classList.add('play');
+
+
 
 	}, 4000);
+
 }
 //slider show
 
@@ -439,6 +444,7 @@ if(nowPath==''){
 		sliderShow();
 
 	}else{
+		motion();
 		sliderShow();
 	}
 }else if(nowPath=='index.html'){
@@ -479,3 +485,14 @@ if(nowPath==''){
 	    });
 	}
 }
+
+// window.addEventListener('load', function(){
+
+// 	if(nowPath=='index.html' || nowPath==''){
+
+// 		if(innerWidth < 767){
+// 			sliderWrapper.classList.add('play');
+
+// 		}
+// 	}
+// })
