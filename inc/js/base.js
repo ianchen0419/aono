@@ -85,7 +85,7 @@ function menuHighlight(){
 function menuDropdown(){
 
 	// PC menu dropdown
-	if(window.innerWidth > 767){
+	if(window.innerWidth > 769){
 
 		var menuChildHeads=document.querySelectorAll('.child-head span');
 
@@ -134,7 +134,7 @@ function openMobileMenu(){
 // top-page motion
 function motion(){
 	header.style.display="none";
-	menu.style.opacity="none";
+	menu.style.display="none";
 	// visual.style.display="none";
 	visual.style.opacity=0;
 	contact.style.display="none";
@@ -158,9 +158,9 @@ function motion(){
 		contact.classList.add('showing');
 		footer.classList.add('showing');
 
+		if(innerWidth < 769){
 			sliderWrapper.classList.add('play');
-
-
+		}
 
 	}, 4000);
 
@@ -439,7 +439,7 @@ function galleryShow(){
 
 
 if(nowPath==''){
-	if(window.innerWidth > 767){
+	if(window.innerWidth > 769){
 		motion();
 		sliderShow();
 
@@ -448,7 +448,7 @@ if(nowPath==''){
 		sliderShow();
 	}
 }else if(nowPath=='index.html'){
-	if(window.innerWidth > 767){
+	if(window.innerWidth > 769){
 		sliderShow();
 	}
 	
@@ -485,14 +485,3 @@ if(nowPath==''){
 	    });
 	}
 }
-
-// window.addEventListener('load', function(){
-
-// 	if(nowPath=='index.html' || nowPath==''){
-
-// 		if(innerWidth < 767){
-// 			sliderWrapper.classList.add('play');
-
-// 		}
-// 	}
-// })
