@@ -1427,6 +1427,10 @@ ul.sitemap-detail-list {
 		width: 100%;
 	}
 
+	.visual-title-area h1 {
+		font-size: 17px;
+	}
+
 	#visual {
 		overflow: hidden;
 	}
@@ -1446,6 +1450,7 @@ ul.sitemap-detail-list {
 		border: none;
 		line-height: 1.5;
 		padding: 0;
+		font-size: 14pt;
 	}
 
 	.advantage-image-list {
@@ -1489,64 +1494,12 @@ ul.sitemap-detail-list {
 		height: auto;
 	}
 
-	.factory-table {
-		display: none;
+	.factory-table th, .factory-table td {
+		font-size: 6pt;
+		padding: 0;	
 	}
 
-	.mobile-factory-table-wrapper {
-		font-size: 0;
-		display: block;	
-	}
-
-	.mobile-factory-table-wrapper th, .mobile-factory-table-wrapper td {
-		white-space: nowrap;
-
-	}
-
-	.table-pinned {
-		display: inline-block;
-		width: 30%;
-		vertical-align: middle;
-		background-color: #afa284;
-	}
-
-	.table-pinned table {
-		width: 100%;
-		border-collapse: collapse;
-	}
-
-	.table-pinned th {
-		color: #fff;
-		border-bottom: 1px solid #fff;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		padding: 0;
-	}
-
-	.table-pinned tr:last-child th {
-		border-bottom: 1px solid #afa284;
-	}
-
-	.table-scroll {
-		display: inline-block;
-		width: 70%;
-		vertical-align: middle;
-		overflow: scroll;
-	}
-
-	.table-scroll table {
-		border-collapse: collapse;
-	}
-
-	.table-scroll td {
-		border: 1px solid #afa284;
-		color: #afa284;
-		padding: 0px 10px;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-	}
+	
 
 	.quality-image-list {
 		text-align: center;
@@ -1704,8 +1657,10 @@ ul.sitemap-detail-list {
 		float: right;
 		position: relative;
 		top: -35px;
+	}
 
-
+	.m-left-article {
+		text-align: left;
 	}
 
 }
