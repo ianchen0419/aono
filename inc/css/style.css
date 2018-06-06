@@ -777,6 +777,10 @@ body.showing {
 	font-size: 0;
 }
 
+.image-footer span {
+	font-size: 11pt;
+}
+
 
 .image-footer small {
 	font-weight: 200;
@@ -1665,7 +1669,44 @@ ul.sitemap-detail-list {
 		margin: 10px 0;
 	}
 
+	.product-image-list {
+		padding: 0;
+		text-align: center;
+	}
 
+	.product-image-list li {
+		width: 95%;
+		margin: 0;
+	}
+
+	.image-list-item:after {
+		height: calc(100% - 52px);
+	}
+	#imageGallery img {
+		width: 100%;
+		height: unset;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	#full_btn,#dl_btn,.image-arrow {
+		display: none;
+	}
+
+	.image-index {
+		width: 100%;
+		text-align: center;
+	}
+
+	.image-toolbar {
+		width: auto;
+		float: right;
+		position: relative;
+		top: -35px;
+
+
+	}
 
 }
 

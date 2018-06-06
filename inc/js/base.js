@@ -340,13 +340,6 @@ function galleryShow(){
 	// 	// imageIndex=i;
 	// }
 
-
-
-	close_btn.addEventListener('click', function(){
-		imageGallery.classList.remove('show');
-		document.body.style.overflow="";
-	})
-
 	function goPrev(){
 		if(imageIndex==0){
 			return;
@@ -376,59 +369,104 @@ function galleryShow(){
 		}
 	}
 
-	img_prev.addEventListener('click', goPrev);
+	if(window.innerWidth > 769) {
 
-	img_next.addEventListener('click', goNext);
-
-	full_btn.addEventListener("click", function(){
-
-		if(document.webkitFullscreenElement || document.msRequestFullscreenElement || document.mozRequestFullScreenElement || document.fullscreenElement){
-
-			if (document.exitFullscreen) {
-				document.exitFullscreen();
-			} else if (document.msExitFullscreen) {
-				document.msExitFullscreen();
-			} else if (document.mozExitFullScreen) {
-				document.mozExitFullScreen();
-			} else if (document.webkitExitFullscreen) {
-				document.webkitExitFullscreen();
-			}
-
-		}else{
-			if (imageGallery.requestFullscreen) {
-				imageGallery.requestFullscreen();
-			} else if (imageGallery.msRequestFullscreen) {
-				imageGallery.msRequestFullscreen();
-			} else if (imageGallery.mozRequestFullScreen) {
-				imageGallery.mozRequestFullScreen();
-			} else if (imageGallery.webkitRequestFullscreen) {
-				imageGallery.webkitRequestFullscreen();
-			}
-
-
-		}
-
-
-
-	})
-
-
-	window.addEventListener("keydown", function(e){
-		if(e.keyCode==27){
+		// desktop
+		close_btn.addEventListener('click', function(){
 			imageGallery.classList.remove('show');
 			document.body.style.overflow="";
-		}
+		})
 
-		if(imageGallery.classList.contains('show')){
 
-			if(e.keyCode==37){
-				goPrev();
-			}else if(e.keyCode==39){
-				goNext();
+		
+
+		img_prev.addEventListener('click', goPrev);
+
+		img_next.addEventListener('click', goNext);
+
+		full_btn.addEventListener("click", function(){
+
+			if(document.webkitFullscreenElement || document.msRequestFullscreenElement || document.mozRequestFullScreenElement || document.fullscreenElement){
+
+				if (document.exitFullscreen) {
+					document.exitFullscreen();
+				} else if (document.msExitFullscreen) {
+					document.msExitFullscreen();
+				} else if (document.mozExitFullScreen) {
+					document.mozExitFullScreen();
+				} else if (document.webkitExitFullscreen) {
+					document.webkitExitFullscreen();
+				}
+
+			}else{
+				if (imageGallery.requestFullscreen) {
+					imageGallery.requestFullscreen();
+				} else if (imageGallery.msRequestFullscreen) {
+					imageGallery.msRequestFullscreen();
+				} else if (imageGallery.mozRequestFullScreen) {
+					imageGallery.mozRequestFullScreen();
+				} else if (imageGallery.webkitRequestFullscreen) {
+					imageGallery.webkitRequestFullscreen();
+				}
+
+
 			}
 
-		}
-	})
+
+
+		})
+
+
+		window.addEventListener("keydown", function(e){
+			if(e.keyCode==27){
+				imageGallery.classList.remove('show');
+				document.body.style.overflow="";
+			}
+
+			if(imageGallery.classList.contains('show')){
+
+				if(e.keyCode==37){
+					goPrev();
+				}else if(e.keyCode==39){
+					goNext();
+				}
+
+			}
+		})
+
+
+	}else {
+
+		// mobile
+		var startX;
+		var moveEndX;
+		var X;
+
+	    imageGallery.addEventListener('touchstart', function(e) {
+
+	        startX = e.touches[0].pageX;
+
+	    });
+
+
+	    imageGallery.addEventListener('touchend', function(e) {
+
+	        moveEndX = e.changedTouches[0].pageX;
+	        X = moveEndX - startX;
+
+	        if (X > 150) {
+	        	console.log('向右');
+	        	goPrev();
+
+	        }else if (X < -150) {
+	        	console.log('向左');
+	        	goNext();
+	        }
+
+	    });
+			
+	}
+
 }
 
 
