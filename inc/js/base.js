@@ -442,29 +442,27 @@ function galleryShow(){
 		var moveEndX;
 		var X;
 
-	    imageGallery.addEventListener('touchstart', function(e) {
+		imageGallery.addEventListener('touchstart', function(e) {
 
-	        startX = e.touches[0].pageX;
+			startX = e.touches[0].pageX;
 
-	    });
+		});
 
 
-	    imageGallery.addEventListener('touchend', function(e) {
+		imageGallery.addEventListener('touchend', function(e) {
 
-	        moveEndX = e.changedTouches[0].pageX;
-	        X = moveEndX - startX;
+			moveEndX = e.changedTouches[0].pageX;
+			X = moveEndX - startX;
 
-	        if (X > 150) {
-	        	console.log('向右');
-	        	goPrev();
+			if (X > 150) {
+				goPrev();
 
-	        }else if (X < -150) {
-	        	console.log('向左');
-	        	goNext();
-	        }
+			}else if (X < -150) {
+				goNext();
+			}
 
-	    });
-			
+		});
+
 	}
 
 }
@@ -477,48 +475,47 @@ function galleryShow(){
 
 
 if(nowPath==''){
-	if(window.innerWidth > 769){
-		motion();
-		sliderShow();
-
-	}else{
-		motion();
-		sliderShow();
-	}
-}else if(nowPath=='index.html'){
-	if(window.innerWidth > 769){
-		sliderShow();
-	}
 	
+	motion();
+	sliderShow();
+
+}else if(nowPath=='index.html'){
+	
+	sliderShow();
+
 	header.classList.add('showing');
 	menu.classList.add('showing');
 	visual.classList.add('showing');
 	contact.classList.add('showing');
 	footer.classList.add('showing');
 
+	if(innerWidth < 769){
+		sliderWrapper.classList.add('play');
+	}
+
 }else if(nowPath=='product.html'){
 	galleryShow();
 }else if(nowPath=='profile.html'){
 	function initMap() {
 		//tokyo office
-		var uluru = {lat: 35.6017628, lng: 139.7189039};
+		var tokyo = {lat: 35.6017628, lng: 139.7189039};
 		var map = new google.maps.Map(document.getElementById('officeMap'), {
 			zoom: 15,
-			center: uluru
+			center: tokyo
 		});
 		var marker = new google.maps.Marker({
-			position: uluru,
+			position: tokyo,
 			map: map
 		});
 
 	    //ibaraki factory
-	    var uluru_2 = {lat: 35.8783578, lng: 140.3325862};
+	    var ibaraki = {lat: 35.8783578, lng: 140.3325862};
 	    var map_2 = new google.maps.Map(document.getElementById('factoryMap'), {
 	    	zoom: 12,
-	    	center: uluru_2
+	    	center: ibaraki
 	    });
 	    var marker = new google.maps.Marker({
-	    	position: uluru_2,
+	    	position: ibaraki,
 	    	map: map_2
 	    });
 	}
