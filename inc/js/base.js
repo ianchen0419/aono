@@ -104,6 +104,7 @@ function menuDropdown(){
 				}
 			})
 		}
+
 	}else{
 
 		//mobile menu dropdown
@@ -117,10 +118,13 @@ function menuDropdown(){
 
 		const mobileMenuChildHeads=document.querySelectorAll('.mobile-child-head');
 
-		mobileMenuChildHeads.forEach(item => item.addEventListener('click', function(){
-			this.classList.toggle('active');
-			this.nextElementSibling.classList.toggle('opened');
-		}))
+		for(i=0;i<mobileMenuChildHeads.length;i++){
+			mobileMenuChildHeads[i].addEventListener('click', function(){
+				this.classList.toggle('active');
+				this.nextElementSibling.classList.toggle('opened');
+			})
+		}
+
 	}
 }
 
@@ -299,7 +303,7 @@ function galleryShow(){
 
 
 	var imgListItem=document.querySelectorAll('.image-list-item');
-	imgListItem.forEach((item, index) => item.addEventListener('click', function(value, i){
+	imgListItem.forEach(function(item, index) {item.addEventListener('click', function(value, i){
 
 		imageIndex=index;
 
@@ -315,7 +319,7 @@ function galleryShow(){
 			document.body.style.overflow="hidden";
 		}, 300);
 
-	}))
+	})})
 
 	// for(i=0;i<imgListItem.length;i++){
 		

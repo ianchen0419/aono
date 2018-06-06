@@ -124,6 +124,7 @@ $textBlack: #444444
 	font-size: 11pt;
 	height: 100%;
 	cursor: pointer;
+	position: relative;
 }
 
 .list-wrapper > li span {
@@ -145,10 +146,15 @@ $textBlack: #444444
 	background-color: #d98494;
 }
 
-.child-head > span:after {
-	content: '\f0d7';
-	margin-left: 15px;
-	font-family: FontAwesome;
+.child-head:after {
+	    content: '\f0d7';
+	    margin-left: 15px;
+	    font-family: FontAwesome;
+	    position: absolute;
+	    top: 8px;
+	    right: 20px;
+	    float: right;
+	    color: #fff;
 }
 
 .child-menu {
