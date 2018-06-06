@@ -133,7 +133,9 @@ $textBlack: #444444
 	width: 100%;
 	display: inline-block;
 	transition-duration: 0.5s;
-	padding: 4px 0;
+	/*padding: 4px 0;*/
+	height: 30px;	
+	line-height: 2;	
 }
 .list-wrapper > li:last-child span {
 	border-right: 1px solid #fff;
@@ -1049,6 +1051,7 @@ body.showing {
 /*radio*/
 .radio-label {
 	margin: 0px 5px;
+	letter-spacing: 0;	
 }
 .radio-label input[type="radio"] {
 	display: none;
@@ -1074,7 +1077,7 @@ body.showing {
 
 .radio-widget, input {
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: middle;
 }
 
 .block-title {

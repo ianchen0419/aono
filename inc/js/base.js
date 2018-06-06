@@ -303,46 +303,43 @@ function galleryShow(){
 
 
 	var imgListItem=document.querySelectorAll('.image-list-item');
-	imgListItem.forEach(function(item, index) {item.addEventListener('click', function(value, i){
+	// imgListItem.forEach(function(item, index) {item.addEventListener('click', function(value, i){
 
-		imageIndex=index;
+	// 	imageIndex=index;
 
-		imageGalleryWrapper.style.transform="translateX(-"+imageIndex+"00vw)";
-		counterIndex.textContent=imageIndex+1;
+	// 	imageGalleryWrapper.style.transform="translateX(-"+imageIndex+"00vw)";
+	// 	counterIndex.textContent=imageIndex+1;
 
-		dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
-		dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
-
-
-		setTimeout(function(){ 
-			imageGallery.classList.add('show');
-			document.body.style.overflow="hidden";
-		}, 300);
-
-	})})
-
-	// for(i=0;i<imgListItem.length;i++){
-		
-	// 	imgListItem[i].addEventListener('click', function(){
-
-	// 		imageGalleryWrapper.style.transform="translateX(-"+imageIndex+"00vw)";
-	// 		counterIndex.textContent=imageIndex+1;
-
-	// 		dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
-	// 		dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
+	// 	dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
+	// 	dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
 
 
-	// 		setTimeout(function(){ 
-	// 			imageGallery.classList.add('show');
-	// 			document.body.style.overflow="hidden";
-	// 		}, 300);
+	// 	setTimeout(function(){ 
+	// 		imageGallery.classList.add('show');
+	// 		document.body.style.overflow="hidden";
+	// 	}, 300);
+
+	// })})
+
+	for(i=0;i<imgListItem.length;i++){
+		imgListItem[i].addEventListener('click', function(){
+
+			imageIndex=parseInt(this.getAttribute('data-index'));
+			imageGalleryWrapper.style.transform="translateX(-"+imageIndex+"00vw)";
+			counterIndex.textContent=imageIndex+1;
+
+			dl_btn.setAttribute('href', imgListItem[imageIndex].children[0].src);
+			dl_btn.setAttribute('download', imgListItem[imageIndex].children[0].alt);
 
 
+			setTimeout(function(){ 
+				imageGallery.classList.add('show');
+				document.body.style.overflow="hidden";
+			}, 300);
 
-	// 	})
+		})
+	}
 
-	// 	// imageIndex=i;
-	// }
 
 	function goPrev(){
 		if(imageIndex==0){
