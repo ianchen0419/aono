@@ -1,3 +1,14 @@
+/*
+Theme Name: aono
+Description: aono industry
+Author: Work Capital
+Author URI: https://www.work-capital.co.jp/
+Version: 1.0
+Tags: red, offical page
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
 * {
 	color: #444444;
 	font-family: 'Century Gothic','Avenir','Helvetica neue','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
@@ -153,7 +164,7 @@ $textBlack: #444444
 	    margin-left: 15px;
 	    font-family: FontAwesome;
 	    position: absolute;
-	    top: 8px;
+	    top: 6px;
 	    right: 20px;
 	    float: right;
 	    color: #fff;
@@ -216,17 +227,17 @@ $textBlack: #444444
 }
 
 .image-1 {
-	background: url(../img/top/top_slide1.png);
+	background: url(inc/img/top/top_slide1.png);
 	background-size: cover;
 }
 
 .image-2 {
-	background: url(../img/top/top_slide2.png);
+	background: url(inc/img/top/top_slide2.png);
 	background-size: cover;
 }
 
 .image-3 {
-	background: url(../img/top/top_slide3.png);
+	background: url(inc/img/top/top_slide3.png);
 	background-size: cover;
 }
 
@@ -403,11 +414,11 @@ $textBlack: #444444
 	margin-left: 40px;
 }
 
-.right-text {
+.right-text,.single-news-date {
 	text-align: right;
 	margin-top: 20px;
 }
-.right-text i {
+.right-text i,.single-news-date i {
 	margin-right: 5px;
 }
 
@@ -627,6 +638,7 @@ body.showing {
 
 .image-list-item {
 	cursor: pointer;
+	font-size: 0;
 }
 
 .image-list-item:before {
@@ -1061,6 +1073,10 @@ body.showing {
 	background: radial-gradient(#afa284 44%, transparent 50%);
 }
 
+.radio-label span {
+	vertical-align: middle;
+}
+
 .radio-widget {
 	width: 20px;
 	height: 20px;
@@ -1120,6 +1136,21 @@ ul.sitemap-detail-list {
 	list-style: none;
 }
 
+.single-news-title-area {
+	text-align: center;
+}
+
+.single-news-title {
+	color: #d0242c;
+	background: #ffdad8;
+	padding: 15px 60px;
+	text-align: center;
+	font-size: 19pt;
+	margin: 40px;
+	display: inline-block;
+}
+
+
 /*RWD*/
 @media (max-width: 768px) {
 	body {
@@ -1144,8 +1175,19 @@ ul.sitemap-detail-list {
 		height: 50px;
 	}
 
+	#contact {
+		min-height: calc(100vh - 182px);
+	}
+
 	.logo-area {
-		margin: 5px 0;
+		vertical-align: middle;
+    	font-size: 0;
+    	margin: 5px 0;
+	}
+
+	.logo-area a {
+		display: inline-block;
+    	font-size: 0;
 	}
 
 	.logo-area img {
@@ -1162,6 +1204,7 @@ ul.sitemap-detail-list {
 		width: 35%;
 		vertical-align: middle;
 		text-align: right;
+		margin: 5px 0;
 	}
 
 	.mobile-menu-bar i {
@@ -1233,7 +1276,8 @@ ul.sitemap-detail-list {
 	}
 
 	.mobile-list a {
-		width: 80%;
+		width: 100%;
+    		box-sizing: border-box;
 		height: 100%;
 		padding: 8px 20px;
 		display: inline-block;
@@ -1255,7 +1299,7 @@ ul.sitemap-detail-list {
 		font-family: FontAwesome;
 		float: right;
 		color: #ff5d55;
-		margin-top: 3px;
+		margin-top: 2px;
 	}
 
 	.mobile-child-head {
@@ -1344,17 +1388,17 @@ ul.sitemap-detail-list {
 	}
 
 	.image-1 {
-		background: url(../img/top/top_slide1_mobile.png);
+		background: url(inc/img/top/top_slide1_mobile.png);
 		background-size: cover;
 	}
 
 	.image-2 {
-		background: url(../img/top/top_slide2_mobile.png);
+		background: url(inc/img/top/top_slide2_mobile.png);
 		background-size: cover;
 	}
 
 	.image-3 {
-		background: url(../img/top/top_slide3_mobile.png);
+		background: url(inc/img/top/top_slide3_mobile.png);
 		background-size: cover; 
 	}
 
@@ -1550,10 +1594,6 @@ ul.sitemap-detail-list {
 		margin-right: 0;
 	}
 
-	.right-text {
-		margin-top: 50px;
-	}
-
 	.right-text-break {
 		display: inline-block;
 		width: 220px;
@@ -1598,9 +1638,14 @@ ul.sitemap-detail-list {
 		margin: 10px 0;
 	}
 
+	.radio-label span {
+	    vertical-align: middle;
+	}
+
 	.contact-table textarea {
 		border: 1px solid #afa284;
 		background-color: #f7f7f7;
+		height: 350px;
 	}
 
 	.btn-box {
@@ -1625,6 +1670,7 @@ ul.sitemap-detail-list {
 	.sitemap-list > li {
 		width: 100%;
 		padding: 0 20px;
+		box-sizing: border-box;
 	}
 
 	.sitemap-detail-list li {
@@ -1671,6 +1717,17 @@ ul.sitemap-detail-list {
 	.m-left-article {
 		text-align: left;
 	}
+
+	.single-news-title {
+		padding: 15px 10px;
+    	margin: 20px 10px;
+	}
+
+	.single-news-date {
+		margin-top: 0;
+	}
+
+
 
 }
 
