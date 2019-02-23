@@ -227,17 +227,17 @@ $textBlack: #444444
 }
 
 .image-1 {
-	background: url(inc/img/top/top_slide1.png);
+	background: url(../img/top/top_slide1.png);
 	background-size: cover;
 }
 
 .image-2 {
-	background: url(inc/img/top/top_slide2.png);
+	background: url(../img/top/top_slide2.png);
 	background-size: cover;
 }
 
 .image-3 {
-	background: url(inc/img/top/top_slide3.png);
+	background: url(../img/top/top_slide3.png);
 	background-size: cover;
 }
 
